@@ -11,3 +11,6 @@ def about(request):
 
 def contact(request):
     return render(request, 'main/contact.html')
+
+def terms_of_service(request):
+    return render(request, 'main/terms-of-service.html')
