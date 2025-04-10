@@ -9,10 +9,6 @@ def get_links():
         'href': '/',
         'icon': 'fa-house',
     }, {
-        'name': 'Cars',
-        'href': '/cars',
-        'icon': 'fa-car',
-    }, {
         'name': 'Contact',
         'href': '/contact',
         'icon': 'fa-paper-plane',
