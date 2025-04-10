@@ -1,0 +1,12 @@
+{% extends 'main/layout/layout.html' %}
+
+{% block title%}Register{% endblock %}
+
+{% block content%}
+    <h1>Register</h1>
+    <form action="/user/register/" method="post">
+        {{ form }}
+        <button>Register</button>
+        {% csrf_token %}
+    </form>
+{% endblock %}

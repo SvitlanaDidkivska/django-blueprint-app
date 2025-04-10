@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'main',
     'news',
     'forum',
+    'user',
 ]
 
 MIDDLEWARE = [ # now default, used for verification/modification processing data from requests
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'pl-pl'
+LANGUAGE_CODE = 'en-en'
 
 TIME_ZONE = 'UTC'
 
