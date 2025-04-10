@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    background-color: #f4f4f9; /* Light gray background */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Welcome Section */
+.bg-light {
+    background-color: #ffffff !important; /* White background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Best Deals */
+.best-deals-title {
+    color: #3f3f3f;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    margin-top: 30px
+}
+
+/* Headings */
+h1, h2 {
+    color: #222; /* Dark gray for contrast */
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #1775da; /* Blue */
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #094280; /* Darker blue */
+}
+
+.btn-warning {
+    background-color: #ffaa29; /* Orange */
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-warning:hover {
+    background-color: #e68900;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Reviews Section */
+.bg-light.py-5 {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    border-radius: 10px;
+}
+
+/* Centered Content */
+.text-center {
+    text-align: center;
+}
+
+/* About Us Button */
+.btn-secondary {
+    background-color: #738391;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

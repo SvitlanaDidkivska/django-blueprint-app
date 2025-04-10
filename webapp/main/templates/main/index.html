@@ -3,16 +3,92 @@
 {% block title%}Homepage{% endblock %}
 
 {% block content%}
-    <h1>Homepage</h1>
-    <div class="container">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus non dolor non sollicitudin. Vivamus augue lectus, congue vitae placerat eu, eleifend quis sapien. Ut ut neque iaculis, egestas orci non, mattis ligula. Donec sed gravida elit. In blandit sapien ac tortor accumsan, at volutpat lacus bibendum. Nulla facilisi. Praesent interdum eros rutrum elementum feugiat. Nunc vitae arcu sit amet felis placerat aliquet. Pellentesque venenatis libero in eleifend ultrices. Etiam consectetur tempus turpis, ut elementum dolor. Nulla ut ornare tortor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque ultrices viverra sollicitudin. Nulla magna nisl, interdum in commodo ac, consectetur eu elit.</p>
-        <p>Aliquam erat volutpat. Vivamus ornare volutpat enim, non efficitur lectus condimentum ut. Fusce nec nunc molestie, malesuada lacus vitae, tristique nibh. Etiam aliquet porta felis. Morbi pharetra rhoncus mauris eget egestas. Phasellus ut augue eu dui interdum porttitor et ut turpis. Vivamus nunc libero, porttitor eu ante ac, tincidunt condimentum dui. Pellentesque vel nisl a risus luctus vulputate a id libero. Nulla venenatis nunc et fermentum malesuada. Proin in leo auctor, vestibulum quam eget, maximus dui. Fusce sagittis condimentum turpis quis volutpat. Etiam a nisi vitae ante elementum porta. Vestibulum congue luctus nunc, vel sagittis risus. In hac habitasse platea dictumst. Pellentesque iaculis sapien nisl, sollicitudin iaculis neque varius venenatis.</p>
-        <p>Suspendisse ut nisi posuere, lacinia ipsum a, pharetra tortor. Vestibulum dapibus facilisis eros, vitae elementum nulla mattis et. Duis sollicitudin ultricies felis, a finibus lacus lacinia ac. Maecenas suscipit justo justo, id lobortis mauris tempor ac. Fusce sodales feugiat elementum. Praesent vehicula eros pellentesque nisl iaculis, sed malesuada sapien pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        <p>Morbi dapibus, dui et euismod congue, lacus nunc consectetur eros, ut tincidunt arcu dui vitae urna. Curabitur eu tortor eget risus blandit ullamcorper. Etiam enim arcu, rhoncus a lorem sed, venenatis malesuada nibh. Maecenas et turpis nulla. Curabitur posuere laoreet posuere. Fusce rhoncus lectus quis ullamcorper interdum. Aenean finibus pretium massa vitae dictum.</p>
-        <p>Etiam vel massa orci. Integer id convallis turpis, vel feugiat quam. Ut pretium semper mauris, vitae eleifend mi pharetra vitae. Aliquam erat volutpat. Sed condimentum libero dolor, vitae semper quam dignissim sed. Nunc efficitur erat a urna interdum, ac tristique mauris dignissim. Maecenas vehicula semper enim, eu placerat ipsum posuere at. Sed eget dui in ante egestas varius at ut ligula. Fusce aliquam tortor feugiat, molestie velit id, sollicitudin urna.</p>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
+
+    <!--<h1>Homepage</h1>--> <!--not sure if its necesarry-->
+    <div class="container text-center mt-4">
+        <!--Welcome message -->
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <h1 class="display-4">Welcome to Our Marketplace!</h1>
+            <p class="lead">Find the best deals on thousands of products from verified sellers.</p>
+            <a href="/forum" class="btn btn-primary btn-lg">Browse Products</a> <!--This line can be changed if we change the forum name!!-->
+        </div>
     </div>
 
-    <button class="btn btn-warning">Go to about us page</button>
+    <!-- Featured Products Section -->
+    <div class="mt-5 bg-light py-3">
+        <h2 class="text-center best-deals-title">Discover the Latest Deals!</h2>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Featured Product 1</h5>
+                        <p class="card-text">This is a brief description of a featured product. It's a top-seller and very popular!</p>
+                        <a href="#" class="btn btn-warning">View Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Featured Product 2</h5>
+                        <p class="card-text">Check out this amazing product that everyone is talking about. Limited stock!</p>
+                        <a href="#" class="btn btn-warning">View Product</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Featured Product 3</h5>
+                        <p class="card-text">A high-quality product that offers great value for money. Don't miss out!</p>
+                        <a href="#" class="btn btn-warning">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    {% include 'main/test.html' %}
+    <!-- Reviews -->
+    <div class="mt-5 bg-light py-5">
+        <h2 class="text-center">What Our Users Are Saying</h2>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">"This marketplace is amazing! I found exactly what I was looking for and at a great price!"</p>
+                        <footer class="blockquote-footer">John Doe, Buyer</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">"Selling on this platform was easy and I reached so many potential customers!"</p>
+                        <footer class="blockquote-footer">Jane Smith, Seller</footer>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">"The customer service is outstanding, and my experience has been seamless!"</p>
+                        <footer class="blockquote-footer">Emily Johnson, Buyer</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="mt-5 text-center">
+        <a href="/about" class="btn btn-secondary btn-lg">Go to About Us Page</a>
+    </div>
+
+
+
 {% endblock %}
