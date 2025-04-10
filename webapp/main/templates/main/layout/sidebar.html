@@ -4,9 +4,9 @@
 {% get_links as links %}
 
 <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
-    <a href="/main/static" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none gap-2">
-      <img src="{% static 'main/img/django_logo.svg' %}" alt="Logo" width="40">
-      <span class="fs-4">Django app</span>
+    <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none gap-2">
+      <img src="{% static 'main/img/marketplace_logo.PNG' %}" alt="Logo" width="40">
+      <span class="fs-4">Marketplace</span>
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
