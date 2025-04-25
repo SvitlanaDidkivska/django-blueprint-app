@@ -1,14 +1,14 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Add news{% endblock %}
+{% block title%}Add post{% endblock %}
 
 {% block content%}
-    <h1>Add news</h1>
+    <h1>Add post</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2">
-{#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
+<!-- {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
 {#            Token wymagany jest aby potwierdzić, że formularz na pewno został wypełniony na żądanie użytkownika #}
-{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #}
+{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
             {% csrf_token %}
 
             {{ form.title }}
@@ -20,7 +20,7 @@
                 {{ error }}
             </span>
 
-            <button class="btn btn-success" type="submit">Add news</button>
+            <button class="btn btn-success" type="submit">Add post</button>
         </form>
     </div>
 {% endblock %}

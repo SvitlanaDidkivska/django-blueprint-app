@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls), # default, part of django
     path('', include('main.urls')),
-    path('news/', include('news.urls')), 
+    path('marketplace/', include('marketplace.urls')), 
     path('forum/', include('forum.urls')),
     path('user/', include('user.urls')), #delegating authority to an internal application
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

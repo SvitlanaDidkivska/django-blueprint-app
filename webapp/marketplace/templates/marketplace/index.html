@@ -1,0 +1,25 @@
+{% extends 'main/layout/layout.html' %}
+
+{% block title%}Webpage posts{% endblock %}
+
+{% block content%}
+    <h1>Posts</h1>
+    <div class="d-flex flex-column gap-4">
+    {% if posts %}
+
+        {% for post in posts %}
+
+            <div>
+            <h3><a href="/marketplace/{{ post.id }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt }}</p>
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No posts for now. Come back later!</p>
+
+    {% endif %}
+    </div>
+{% endblock %}

@@ -1,21 +1,21 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Article #{{ articles.id }} deletion{% endblock %}
+{% block title%}Poste #{{ posts.id }} deletion{% endblock %}
 
 {% block content%}
-    <h1>Article #{{ articles.id }} deletion</h1>
+    <h1>Post #{{ posts.id }} deletion</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2">
-{#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
+<!-- {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
 {#            Token wymagany jest aby potwierdzić, że formularz na pewno został wypełniony na żądanie użytkownika #}
-{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #}
+{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
             {% csrf_token %}
             <div class="alert alert-danger text-center">
-                This action is destructive. Are you sure you want to delete article #{{ articles.id }}?
+                This action is destructive. Are you sure you want to delete post #{{ articles.id }}?
             </div>
 
             <div class="d-flex gap-2 justify-content-center">
-                <a href="/news/{{ articles.id }}" class="btn btn-info">No, go back</a>
+                <a href="/marketplace/{{ articles.id }}" class="btn btn-info">No, go back</a>
                 <button class="btn btn-danger" type="submit">Yes, delete!</button>
             </div>
         </form>
