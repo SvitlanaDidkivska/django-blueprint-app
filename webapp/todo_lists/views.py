@@ -1,10 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
  
 from todo_lists.forms import TodoListForm
  # Create your views here.
+@login_required
 def index(request):
     return render(request, 'todo_lists/index.html')
 
+@login_required
 def create(request):
     error = ''
  
