@@ -1,8 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
  
+from todo_lists.forms import TodoListForm
  # Create your views here.
 def index(request):
     return render(request, 'todo_lists/index.html')
 
 def create(request):
-    return render(request, 'todo_lists/create.html')
+    error = ''
+ 
+    if request.method == 'POST':
+        form = TodoListForm(request.POST)
+        if form.is_valid():
+            # Na tym etapie definiujemy, że każda lista powiązana jest z jej autorem, czyli zalogowanym użytkownikiem
+            form.instance.owner = request.user
+            form.save()
+            return redirect('todo-lists')
+        else:
+            error = 'Submitted form contain errors'
+ 
+ 
+    form = TodoListForm()
+ 
+    data = {
+        'form': form,
+        'error': error,
+    }
+    return render(request, 'todo_lists/create.html', data)
