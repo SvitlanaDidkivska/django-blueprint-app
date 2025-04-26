@@ -11,7 +11,6 @@ def marketplace_home(request):
     posts = Posts.objects.all().order_by('-published_at')
     return render(request, 'marketplace/index.html', {'posts': posts})
 
-@login_required(login_url='/user/login/')
 def marketplace_create(request):
     error = ''
 
