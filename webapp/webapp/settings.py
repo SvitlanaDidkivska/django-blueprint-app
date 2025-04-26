@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'main',
     'news',
     'forum',
+    'todo_lists',
 ]
 
 MIDDLEWARE = [ # now default, used for verification/modification processing data from requests

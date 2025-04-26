@@ -13,6 +13,10 @@ def get_links():
         'href': '/cars',
         'icon': 'fa-car',
     }, {
+        'name': 'To-do Lists',
+        'href': '/todo-lists',
+        'icon': 'fa-check',
+    }, {
         'name': 'Contact',
         'href': '/contact',
         'icon': 'fa-paper-plane',
