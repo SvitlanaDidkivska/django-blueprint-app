@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
- 
+from django.views.generic import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from todo_lists.forms import TodoListForm
 from todo_lists.models import TodoList
  # Create your views here.
@@ -34,3 +36,9 @@ def create(request):
         'error': error,
     }
     return render(request, 'todo_lists/create.html', data)
+
+# @login_required
+class TodoListDetailView(LoginRequiredMixin, DetailView):
+    model = TodoList
+    template_name = 'todo_lists/show.html'
+    context_object_name = 'todo_list'
