@@ -8,7 +8,7 @@
 {% get_links as links %}
 {% endif %}
 
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 100vh; position: sticky; top: 0;">
     <a href="{% url 'home' %}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none gap-2">
       <img src="{% static 'main/img/marketplace_logo.PNG' %}" alt="Logo" width="40">
       <span class="fs-4">Marketplace</span>
@@ -28,7 +28,14 @@
     <hr>
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        {% if user.is_authenticated %}
+          {% with user.first_name|default:user.username as user_name %}
+            <img src="https://ui-avatars.com/api/?name={{ user_name }}&color=fff&length=1&rounded=true&background=random&seed={{ user.username }}"
+                  alt="{{ user.username }} Avatar" width="32" height="32" class="rounded-circle me-2">
+          {% endwith %}
+        {% else %}
+          <img src="https://ui-avatars.com/api/?name=Guest&background=6c757d&color=fff" alt="Guest Avatar" width="32" height="32" class="rounded-circle me-2">
+        {% endif %}
         <strong>{% if user.is_authenticated %} Welcome {{ user }}! {% else %} Welcome! {% endif %}</strong>
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
