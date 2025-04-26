@@ -5,8 +5,28 @@
 {% block content%}
     <h1>To-do lists</h1>
 
-    
-    <div>
+
+    <div class="pb-4">
         <a class="btn btn-info btn-block" href="/todo-lists/create">Create a new list</a>
     </div> 
+
+   <div>
+       <table class="table table-striped">
+           <thead>
+           <tr>
+               <th scope="col">Name</th>
+               <th scope="col">Owner</th>
+           </tr>
+           </thead>
+           <tbody>
+           {% for list in lists %}
+               <tr>
+                   <td><a href="/todo-lists/{{ list.id }}">{{ list.name }}</a></td>
+                   <td>{{ list.owner }}</td>
+               </tr>
+           {% endfor %}
+           </tbody>
+       </table>
+   
+    </div>
 {% endblock %}

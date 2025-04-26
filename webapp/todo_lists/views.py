@@ -2,10 +2,15 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
  
 from todo_lists.forms import TodoListForm
+from todo_lists.models import TodoList
  # Create your views here.
 @login_required
 def index(request):
-    return render(request, 'todo_lists/index.html')
+     lists = (TodoList
+              .objects
+              .filter(owner=request.user)
+              .order_by('-id'))
+     return render(request, 'todo_lists/index.html', {'lists': lists})
 
 @login_required
 def create(request):
