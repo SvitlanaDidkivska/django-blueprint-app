@@ -42,3 +42,6 @@ class TodoListDetailView(LoginRequiredMixin, DetailView):
     model = TodoList
     template_name = 'todo_lists/show.html'
     context_object_name = 'todo_list'
+ 
+def createTask(request, pk):
+    return render(request, 'todo_lists/create_task.html')
