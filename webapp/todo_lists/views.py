@@ -37,7 +37,7 @@ def create(request):
     }
     return render(request, 'todo_lists/create.html', data)
 
-class TodoListDeleteView(DeleteView):
+class TodoListDeleteView(LoginRequiredMixin, DeleteView):
      model = TodoList
      template_name = 'todo_lists/delete_list.html'
      success_url = '/todo-lists/'
@@ -48,6 +48,7 @@ class TodoListDetailView(LoginRequiredMixin, DetailView):
     template_name = 'todo_lists/show.html'
     context_object_name = 'todo_list'
  
+@login_required
 def createTask(request, pk):
 
     error = ''
@@ -64,19 +65,21 @@ def createTask(request, pk):
     }
     return render(request, 'todo_lists/create_task.html', data)
 
+@login_required
 def checkTask(request, pk, task_id):
     task = Task.objects.get(id=task_id)
     task.is_completed = True
     task.save()
     return redirect('show-todo-list', pk=pk)
- 
+
+@login_required 
 def uncheckTask (request, pk, task_id):
     task = Task.objects.get(id=task_id)
     task.is_completed = False
     task.save()
     return redirect('show-todo-list', pk=pk)
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
      model = Task
      template_name = 'todo_lists/delete_task.html'
      success_url = '/todo-lists/'
