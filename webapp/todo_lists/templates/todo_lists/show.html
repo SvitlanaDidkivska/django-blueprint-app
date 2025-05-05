@@ -13,9 +13,29 @@
         <a class="btn btn-info btn-block" href="/todo-lists/{{ todo_list.id }}/create">Add a new task</a>
     </div>
 
-    <div>
+    <div class="row gap-2">
         {% for task in todo_list.task_set.all %}
-            <div>{{ task.name }}</div>
+            <div class="d-flex gap-2">
+            {% if task.is_completed %}
+                <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/uncheck" method="POST">
+                    <button class="btn btn-sm btn-warning" type="submit"><i class="fa-solid fa-rotate-left"></i></button>
+                </form>
+            {% else %}
+                <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/check" method="POST">
+                    <button class="btn btn-sm btn-info" type="submit"><i class="fa-solid fa-check"></i></button>
+                </form>
+            {% endif %}
+
+               <div class="{% if task.is_completed %}text-success{% endif %}">
+                   {% if task.is_completed %}
+                       <i class="fa-solid fa-check"></i>
+                   {% else %}
+                       <i class="fa-solid fa-xmark"></i>
+                   {% endif %}
+                   {{ task.name }}
+               </div>
+            </div>
+
         {% endfor %}
     </div>   
 {% endblock %}
