@@ -4,7 +4,7 @@ from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from todo_lists.forms import TodoListForm, TaskForm
-from todo_lists.models import TodoList
+from todo_lists.models import TodoList, Task
  # Create your views here.
 @login_required
 def index(request):
@@ -58,3 +58,15 @@ def createTask(request, pk):
          'form': form,
     }
     return render(request, 'todo_lists/create_task.html', data)
+
+def checkTask(request, pk, task_id):
+    task = Task.objects.get(id=task_id)
+    task.is_completed = True
+    task.save()
+    return redirect('show-todo-list', pk=pk)
+ 
+def uncheckTask (request, pk, task_id):
+    task = Task.objects.get(id=task_id)
+    task.is_completed = False
+    task.save()
+    return redirect('show-todo-list', pk=pk)
