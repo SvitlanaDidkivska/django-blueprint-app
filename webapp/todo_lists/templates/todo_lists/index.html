@@ -16,6 +16,7 @@
            <tr>
                <th scope="col">Name</th>
                <th scope="col">Owner</th>
+               <th scope="col">Status</th>
            </tr>
            </thead>
            <tbody>
@@ -23,6 +24,18 @@
                <tr>
                    <td><a href="/todo-lists/{{ list.id }}">{{ list.name }}</a></td>
                    <td>{{ list.owner }}</td>
+                   <td>
+                    {% if list.is_empty %}
+                        <span class="badge bg-secondary">Empty list</span>
+                    {% else %}
+                        {% if list.is_completed %}
+                            <span class="badge bg-success">Completed!</span>
+                        {% else %}
+                            <span class="badge bg-primary">In progress...</span>
+                        {% endif %}
+                    {% endif %}
+
+                    </td>                   
                </tr>
            {% endfor %}
            </tbody>
