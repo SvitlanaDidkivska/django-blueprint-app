@@ -1,9 +1,9 @@
 {% extends 'main/layout/layout.html' %}
  
- {% block title%}Task "{{ task.name }}" deletion{% endblock %}
+ {% block title%}Todo List "{{ todolist.name }}" deletion{% endblock %}
  
  {% block content%}
-     <h1>Task "{{ task.name }}" deletion</h1>
+     <h1>Todo List "{{ todolist.name }}" deletion</h1>
      <div>
          <form method="post" class="form d-flex flex-column gap-2">
  {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
@@ -11,11 +11,11 @@
  {#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #}
              {% csrf_token %}
              <div class="alert alert-danger text-center">
-                 This action is destructive. Are you sure you want to delete Task "{{ task.name }}" deletion?
+                 This action is destructive. Are you sure you want to delete todo list "{{ todolist.name }}" deletion?
              </div>
  
              <div class="d-flex gap-2 justify-content-center">
-                 <a href="/todo-lists/{{ task.todo_list.id }}" class="btn btn-info">No, go back</a>
+                 <a href="/todo-lists/{{ todolist.id }}" class="btn btn-info">No, go back</a>
                  <button class="btn btn-danger" type="submit">Yes, delete!</button>
              </div>
          </form>

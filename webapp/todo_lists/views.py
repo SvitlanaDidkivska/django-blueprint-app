@@ -37,6 +37,11 @@ def create(request):
     }
     return render(request, 'todo_lists/create.html', data)
 
+class TodoListDeleteView(DeleteView):
+     model = TodoList
+     template_name = 'todo_lists/delete_list.html'
+     success_url = '/todo-lists/'
+ 
 # optionalTODO: Należy poszukać sposób naprawy błędu o nazwie N+1 dla wyświetlania zadań z listy
 class TodoListDetailView(LoginRequiredMixin, DetailView):
     model = TodoList

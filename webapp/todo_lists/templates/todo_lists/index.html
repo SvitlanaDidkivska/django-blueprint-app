@@ -17,6 +17,7 @@
                <th scope="col">Name</th>
                <th scope="col">Owner</th>
                <th scope="col">Status</th>
+               <th scope="col">Operations</th>
            </tr>
            </thead>
            <tbody>
@@ -35,7 +36,8 @@
                         {% endif %}
                     {% endif %}
 
-                    </td>                   
+                    </td>
+                    <td><a href="/todo-lists/{{ list.id }}/delete" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> Delete</a></td>                   
                </tr>
            {% endfor %}
            </tbody>
