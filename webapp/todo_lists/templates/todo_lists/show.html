@@ -16,17 +16,18 @@
     <div class="row gap-2">
         {% for task in todo_list.task_set.all %}
             <div class="d-flex gap-2">
-            {% if task.is_completed %}
-                <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/uncheck" method="POST">
-                    {% csrf_token %}
-                    <button class="btn btn-sm btn-warning" type="submit"><i class="fa-solid fa-rotate-left"></i></button>
-                </form>
-            {% else %}
-                <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/check" method="POST">
-                    {% csrf_token %}
-                    <button class="btn btn-sm btn-info" type="submit"><i class="fa-solid fa-check"></i></button>
-                </form>
-            {% endif %}
+                <a class="btn btn-sm btn-danger" href="/todo-lists/{{ todo_list.id }}/{{ task.id }}/delete"><i class="fa-solid fa-trash"></i></a>
+                {% if task.is_completed %}
+                    <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/uncheck" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-warning" type="submit"><i class="fa-solid fa-rotate-left"></i></button>
+                    </form>
+                {% else %}
+                    <form action="/todo-lists/{{ todo_list.id }}/{{ task.id }}/check" method="POST">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-info" type="submit"><i class="fa-solid fa-check"></i></button>
+                    </form>
+                {% endif %}
 
                <div class="{% if task.is_completed %}text-success{% endif %}">
                    {% if task.is_completed %}

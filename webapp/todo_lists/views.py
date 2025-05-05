@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView
+from django.views.generic import DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from todo_lists.forms import TodoListForm, TaskForm
@@ -70,3 +70,8 @@ def uncheckTask (request, pk, task_id):
     task.is_completed = False
     task.save()
     return redirect('show-todo-list', pk=pk)
+
+class TaskDeleteView(DeleteView):
+     model = Task
+     template_name = 'todo_lists/delete_task.html'
+     success_url = '/todo-lists/'
