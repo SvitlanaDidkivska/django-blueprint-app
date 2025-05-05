@@ -5,6 +5,16 @@
  {% block content%}
      <h1>Create a task for To-do list</h1>
      <div>
- 
+        <form method="post" class="form d-flex flex-column gap-2">
+            {% csrf_token %}
+
+            {{ form.name }}
+
+            <span>
+                {{ error }}
+            </span>
+
+            <button class="btn btn-success" type="submit">Add new task</button>
+        </form>
      </div>
  {% endblock %}
