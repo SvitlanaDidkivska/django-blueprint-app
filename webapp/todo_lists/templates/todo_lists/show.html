@@ -12,4 +12,10 @@
     <div class="pb-4">
         <a class="btn btn-info btn-block" href="/todo-lists/{{ todo_list.id }}/create">Add a new task</a>
     </div>
+
+    <div>
+        {% for task in todo_list.task_set.all %}
+            <div>{{ task.name }}</div>
+        {% endfor %}
+    </div>   
 {% endblock %}
