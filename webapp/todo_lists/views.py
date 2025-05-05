@@ -45,6 +45,13 @@ class TodoListDetailView(LoginRequiredMixin, DetailView):
  
 def createTask(request, pk):
 
+    error = ''
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.instance.todo_list = TodoList.objects.get(id=pk)
+            form.save()
+        return redirect('show-todo-list', pk=pk)
     form = TaskForm()
  
     data = {
