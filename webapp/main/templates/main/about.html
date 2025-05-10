@@ -3,11 +3,53 @@
 {% block title%}About us{% endblock %}
 
 {% block content%}
-    <div class="features">
-        <h1>About us</h1>
-        <p>Lorem ipsum dolor sit amet</p>
-        <button class="btn btn-success">Dangerous button</button>
-    </div>
 
+    <style>
+        .ta-center{
+        text-align: center;
+        
+    }
+
+        .container {
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        box-shadow: 2px 2px 5px rgba(8, 9, 23, 0.1);
+        background-color: #f9f9f9;
+        font-size: 20px;
+    }
+
+    </style>
+
+    <div class="container ta-center">
+        <h1>About us</h1>
+    </div>
+    <div  style="display: flex;">
+
+        <div class="container ta-center">
+            <img src="static/main/img/market1.png" alt="market" style="width:500px; height:auto; margin-right: 100px;">
+        </div>
+
+        <div class="container"> 
+            Welcome to <strong>Marketplace</strong>! We're your go-to free market space where anyone can buy,
+            sell, or exchange a wide variety of items. Whether you're looking to part ways with a vintage painting, 
+            find a new favourite T-shirt, trade a coffee cup, or even seel your car; Marketplace is here to make it easy! <br><br>
+            Our platform connects poeple across Poland, giving you direct access to local buyers and sellers.
+            Just type in what you're searching for, browse the listings, and get in touch! That simple!<br><br>
+            We believe in making online trading safe, accessible, and user-friendly!
+            That's why we offer reliable tools to help you manage your listings, communicate with others,
+            and complite transactions with  confidence. Whether you're a first-time user or a seasoned seller,
+            Marketplace is designed to support your journey every step of the way.<br><br>
+            So go ahead - discover something new, give unused items a second life,
+            and be part of a growing community! 
+        </div>
+
+    </div>
+    <div class="container ta0-center">
+        Our quarters are located in Jaama tn 16a, Põlva, 63308 Põlva maakond, Estonia, <a href="https://www.google.com/maps?hl=pl&gl=pl&um=1&ie=UTF-8&fb=1&sa=X&ftid=0x46eadfcc4e61c2a3:0xb663e06e1ff475f3">here</a>!<br><br>
+        If you need help, <a href="/contact">contact</a> us! We are a team of young poeple, ready to talk and work with everyone!
+    </div>
+    
 
 {% endblock %}
