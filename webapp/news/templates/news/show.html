@@ -1,0 +1,29 @@
+{% extends 'main/layout/layout.html' %}
+
+{% block title%}(#{{ news.id }}) {{ news.title }}{% endblock %}
+
+{% block content%}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
+
+    <div class="container mt-4">
+        <div class="mb-4 pb-3 border-bottom">
+
+            <h1 class="display-4 custom-display-font">{{ news.title }}</h1>
+            <p class="text-muted mb-0">
+                Published: {{ news.published_at|date:"d\.m\.Y l, g:i" }}
+            </p>
+        </div>
+
+        <div class="news-article-body mt-3">
+                 <p>{{ news.body }}</p>
+        </div>
+
+        <div class="mt-5 pt-4 border-top">
+            <a href="{% url 'news_home' %}" class="btn btn-outline-secondary">
+                <i class="fas fa-arrow-left me-2"></i>
+                Back to All News
+            </a>
+        </div>
+    </div>
+{% endblock %}

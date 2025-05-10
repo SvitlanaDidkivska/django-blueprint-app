@@ -1,0 +1,37 @@
+{% extends 'main/layout/layout.html' %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
+
+    <div class="container mt-4">
+        <div class="p-4 p-md-5 mb-4 bg-light rounded-3 text-center">
+            <h1 class="display-4">Latest News</h1>
+        </div>
+
+        {% if newses %}
+            <div class="row">
+                {% for news in newses %}
+                    <div class="col-md-6 col-lg-4 mb-4 d-flex align-items-stretch">
+                        <div class="card shadow-sm w-100">
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5"><a href="/news/{{ news.id }}" class="text-decoration-none">{{ news.title }}</a></h3>
+                                <p class="card-text flex-grow-1">{{ news.excerpt }}</p>
+                                <p class="card-text"><small class="text-muted">Published: {{ news.published_at|date:"d\.m\.Y l, g:i" }}</small></p>
+                                <a href="/news/{{ news.id }}" class="btn btn-primary mt-auto align-self-start">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
+                <h2>No news yet</h2>
+                <p class="lead text-muted">Please check back later for the latest updates!</p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

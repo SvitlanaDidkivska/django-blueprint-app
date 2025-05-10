@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # custom apps
     'main',
     'marketplace',
-    'forum',
+    'news',
     'user',
 ]
 
