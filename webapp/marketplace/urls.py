@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('', views.marketplace_home, name='marketplace_home'),
-    path('create', login_required(views.marketplace_create, login_url='/user/login/'), name='marketplace_create'),
+    path('create', views.marketplace_create, name='marketplace_create'),
     path('<int:pk>', views.PostDetailView.as_view(), name='marketplace_show'),
-    path('<int:pk>/update', login_required(views.PostUpdateView.as_view(), login_url='/user/login/'), name='marketplace_update'),
-    path('<int:pk>/delete', login_required(views.PostDeleteView.as_view(), login_url='/user/login/'), name='marketplace_delete'),
+    path('<int:pk>/update', views.PostUpdateView.as_view(), name='marketplace_update'),
+    path('<int:pk>/delete', views.PostDeleteView.as_view(), name='marketplace_delete'),
 ]

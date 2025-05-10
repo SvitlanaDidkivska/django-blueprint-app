@@ -3,6 +3,7 @@
 {% block title%}Post #{{ posts.id }} deletion{% endblock %}
 
 {% block content%}
+{% if user.is_authenticated and user == posts.owner %}
     <h1>Post #{{ posts.id }} deletion</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2">
@@ -11,7 +12,7 @@
 {#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
             {% csrf_token %}
             <div class="alert alert-danger text-center">
-                This action is destructive. Are you sure you want to delete post #{{ articles.id }}?
+                This action is destructive. Are you sure you want to delete post #{{ posts.id }}?
             </div>
 
             <div class="d-flex gap-2 justify-content-center">
@@ -20,4 +21,5 @@
             </div>
         </form>
     </div>
+{% endif %}
 {% endblock %}

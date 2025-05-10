@@ -12,6 +12,7 @@
             <div>
             <h3><a href="/marketplace/{{ post.id }}">{{ post.title }}</a></h3>
             <p>{{ post.excerpt }}</p>
+            <p>Added by: {{ post.owner }}, {{ post.published_at|date:"d\.m\.Y l" }}</p>
             </div>
 
         {% endfor %}

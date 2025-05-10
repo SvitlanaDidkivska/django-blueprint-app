@@ -1,6 +1,7 @@
 from .models import Posts
 from django.forms import ModelForm, TextInput, DateInput, Textarea
 
+
 class PostsForm(ModelForm):
     class Meta:
         model = Posts

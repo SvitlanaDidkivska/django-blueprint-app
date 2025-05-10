@@ -3,6 +3,8 @@
 {% block title%}Update post #{{ form.title.value }}{% endblock %}
 
 {% block content%}
+{% if user.is_authenticated and user == posts.owner %}
+
     <h1>Update post #{{ form.title.value }}</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2">
@@ -23,4 +25,8 @@
             <button class="btn btn-success" type="submit">Update</button>
         </form>
     </div>
+{% else %}
+    Ops! Something went wrong.
+{% endif %}
+
 {% endblock %}
