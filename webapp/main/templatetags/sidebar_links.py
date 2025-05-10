@@ -16,7 +16,7 @@ def get_links():
         'name': 'About',
         'href': '/about',
         'icon': 'fa-address-card',
-    },{
+    }, {
         'name': 'Marketplace',
         'href': '/marketplace/',
         'icon': 'fa-newspaper',
@@ -24,6 +24,10 @@ def get_links():
         'name': 'Forum',
         'href': '/forum',
         'icon': 'fa-comment', #look for your icon here https://fontawesome.com/search?ic=free
+    }, {
+        'name':'Terms of Service',
+        'href': '/terms-of-service',
+        'icon': 'fa-solid fa-bars'
     }]
 
     return links
