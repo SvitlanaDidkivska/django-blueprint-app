@@ -58,6 +58,10 @@ def get_links_authenticated():
         'name': 'News',
         'href': '/news',
         'icon': 'fa-comment', #look for your icon here https://fontawesome.com/search?ic=free
+    }, {
+        'name':'Terms of Service',
+        'href': '/terms-of-service',
+        'icon': 'fa-solid fa-bars'
     }]
          
     return links
