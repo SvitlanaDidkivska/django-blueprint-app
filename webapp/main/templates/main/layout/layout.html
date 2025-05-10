@@ -15,6 +15,7 @@
 
     <title>{% block title %}{% endblock %}</title>
     <!-- <link rel="stylesheet" href="{% static 'forum/css/forum.css' %}"> -->
+    {% block extra_css %}{% endblock %} <!-- dodalam to, zeby kazda strona miala wlasne css, mozna to potem usunac w razie potrzeby -ola -->
 </head>
 <body>
 <div class="d-flex flex-nowrap">
