@@ -10,6 +10,63 @@
             gap: 20px;
             justify-content: space-between;
         }
+        .contact-box {
+            border: 1px solid #052983;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+    /*box jak jest zwinięty*/
+        .contact-label {
+            font-style: italic;
+            color: #033393;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+    /*box jak się rozwinie*/
+
+        .arrow {
+            transition: transform 0.3s ease;
+        }
+    /*strzałeczka owo*/
+
+        input[type="checkbox"]:checked + label .arrow {
+            transform: rotate(180deg);
+        }
+    /*strzałeczka robi backflipy hihi*/
+
+        input[type="checkbox"]{
+            display: none;
+        }
+    /*ukrywa boxa*/
+
+        label{
+            font-style: italic;
+            color: blue;
+            cursor: pointer;
+            font-size: large;
+            display: block;
+            margin: 15px 0;
+        }
+    /*wygląd linku zachęcający do kliknięcia*/
+
+        .dane {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            margin-left: 100px;
+        }
+    /*dane są ukrywane na początku*/
+
+        input[type="checkbox"]:checked + label + .dane {
+            max-height: 500px;
+        }
+
         .button {
             text-align: center;
         }
@@ -27,6 +84,38 @@
         .head h3{
             margin-top: 0;
         }
+
+        div#FAQContent{
+             width: 100%;
+            max-width: 800px; /* dopasuj do swojego layoutu */
+            margin: 0 auto; /* wycentruje */
+            height: 0px;
+            display: none;
+            background-color: white;
+            padding: 30px;
+            transition: height 0.3s ease;
+            overflow: hidden;
+        }
+
+        button{
+            font-size: 20px;
+            padding: 12px 24px;
+            background-color: rgb(0, 117, 235);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgb(69, 69, 84);
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+
+        button:hover{
+            background-color: #033393;
+            transform: scale(1.03);
+        }
+
+
     </style>
     <div class="features">
         <div class ="head">
@@ -301,16 +390,118 @@
 
 
         <h2 id="FAQ" style="text-align: center;">Frequently Asked Questions</h2>
+
         <br><br>
 
-        <div class="button">
-            <a class="btn btn-primary btn-lg">FAQ</a>
+        
+        <button id="show" onclick="show()">FAQ</button>
+
+        <br><br>
+        
+        <div id="FAQContent">
+            <div class="contact-box">
+                <input type="checkbox" id="question1">
+                <label for="question1" class="contact-label">
+                    <strong>How to return the order?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>You can return unused products free of charge within 30 days.</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question2">
+                <label for="question2" class="contact-label">
+                    <strong>When will I get my refund?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>The refund will be made within 14 days of the return shipment being handed over to the carrier. 
+                        The amount will be refunded via the payment method selected during the ordering process.</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question3">
+                <label for="question3" class="contact-label">
+                    <strong>What should I do if my product is damaged or defective?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>We're sorry if the product you got is demaged. With any problems regarding other users go to contact
+                        and we're gonna solve this matter.
+                    </p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question4">
+                <label for="question4" class="contact-label">
+                    <strong>How to create an account?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>If you want to create an account go to the sidebar and click on 'Welcome!', then click 'register'
+                        and fill up all nesesery information, then log in using your login and password.
+                    </p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question5">
+                <label for="question5" class="contact-label">
+                    <strong>How do I delete my account?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>Go to the contact page and comunicate it to the persn responsible for problems with an account, they will delete your account.</p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question6">
+                <label for="question6" class="contact-label">
+                    <strong>Where is my package?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>To follow the location of your package pleae proside to the side of the delivery option you had chosen
+                        and use the code you got on your email.
+                    </p>
+                </div>
+            </div>
+            <div class="contact-box">
+                <input type="checkbox" id="question7">
+                <label for="question7" class="contact-label">
+                    <strong>What payment methods are available?</strong>
+                    <span class="arrow">▼</span>
+                </label>
+                <div class="dane">
+                    <p>We support: credit card; Paypal; cash; Przelewy24; BLIK.</p>
+                </div>
+            </div>
+            <button id="hide" onclick="hide()">Hide</button>
+        </div>
 
             <br><br><br><br>
-
+        <div class="button">
             <a href="/contact" class="btn btn-primary btn-lg">Contact us!</a>
         </div>
     </div>
+
+
+    <script>
+        function show() {
+            const content = document.getElementById('FAQContent');
+            content.style.display = "block";
+            content.style.height = "auto" ;
+        }
+
+        function hide() {
+            const content = document.getElementById('FAQContent');
+            content.style.height = "0px";
+            // opóźnia animacje
+            setTimeout(() => {
+                content.style.display = "none";
+            },);
+        }
+    </script>
 
 
 {% endblock %}
