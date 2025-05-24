@@ -1,31 +1,38 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Webpage posts{% endblock %}
+{% load static %}
 
-{% block content%}
-    <h1>Posts</h1>
-    <div class="d-flex flex-column gap-4">
+{% block title %}Marketplace{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/marketplace.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="marketplace-wrapper">
+    <h1 class="marketplace-title">Marketplace</h1>
+
     {% if posts %}
-
+    <div class="market-grid">
         {% for post in posts %}
-
-            <div>
-            <h3><a href="/marketplace/{{ post.id }}">{{ post.title }}</a></h3>
-            <p>{{ post.excerpt }}</p>
-            <p>Added by: {{ post.owner }}, {{ post.published_at|date:"d\.m\.Y l" }}</p>
-            </div>
+        <div class="market-card">
+            <h3 class="market-title">
+                <a href="/marketplace/{{ post.id }}">{{ post.title }}</a>
+            </h3>
+            <p class="market-excerpt">{{ post.excerpt }}</p>
+            <p class="market-meta">
+                Added by {{ post.owner }} on {{ post.published_at|date:"d.m.Y (l)" }}
+            </p>
+        </div>
             <div>
                 {% if post.post_image %}
                 <img src="{{ post.post_image.url }}" alt="Post image" class="img-fluid rounded shadow" style="max-width: 300px; height: auto;">
                 {% endif %}
             </div>
-
         {% endfor %}
-
-    {% else %}
-
-        <p>No posts for now. Come back later!</p>
-
-    {% endif %}
     </div>
+    {% else %}
+    <p class="text-center">No posts for now. Come back later!</p>
+    {% endif %}
+</div>
 {% endblock %}

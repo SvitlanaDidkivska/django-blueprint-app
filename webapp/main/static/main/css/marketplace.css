@@ -1,0 +1,85 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.d-flex {
+    display: flex;
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 38px;
+    color: #343a40;
+}
+
+.marketplace-wrapper {
+    max-width: 1200px;
+    margin: 20px auto 20px auto; /* top and bottom margin */
+    padding: 30px 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.marketplace-title {
+    font-size: 2.5rem;
+    color: #3f3f3f;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.market-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.market-card:hover {
+    transform: translateY(-5px);
+}
+
+.market-title {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #1775da;
+    margin-bottom: 10px;
+}
+
+.market-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.market-title a:hover {
+    text-decoration: underline;
+}
+
+.market-excerpt {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.market-meta {
+    font-size: 0.875rem;
+    color: #666;
+}
