@@ -13,6 +13,9 @@
         <h1>Login</h1>
         <form action="/user/login/" method="post">
             {{ form }}
+            {% if request.GET.next %}
+            <input type="hidden" name = 'next' value="{{ request.GET.next }}" >
+            {% endif %}
             <button>Login</button>
             {% csrf_token %}
         </form>

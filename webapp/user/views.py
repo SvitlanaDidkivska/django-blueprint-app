@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponseNotAllowed
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required 
+from django.contrib import messages
 
 # Create your views here.
 def register(request):
@@ -10,7 +11,10 @@ def register(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "Profile successfully created!")
             return redirect('home')
+        
+        
     elif request.method == "GET":
         form = UserCreationForm()
     else:
@@ -23,7 +27,14 @@ def login_view(request):
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect('home')
+            if 'next' in request.POST:
+                messages.success(request, "Successfully log in!")
+                return redirect(request.POST.get('next'))
+            
+            else:
+                messages.success(request, "Successfully log in!")
+                return redirect('home')
+            
     elif request.method == 'GET':
         form = AuthenticationForm()
     else:
@@ -34,6 +45,7 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
+    messages.success(request, "Successfully log out!")
     return redirect('home')
 
 
