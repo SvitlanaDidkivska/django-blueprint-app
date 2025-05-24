@@ -9,6 +9,8 @@ class Posts(models.Model):
     body = models.TextField('Post body', null=False, blank=True)
     published_at = models.DateField('Post published at', null=False, blank=False)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_image = models.ImageField(null=True, blank=True, upload_to="images/")
+    
 
     def get_absolute_url(self):
         return f'/marketplace/{self.id}'

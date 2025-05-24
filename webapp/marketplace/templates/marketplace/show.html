@@ -15,13 +15,21 @@
     <div class="d-flex flex-column gap-4">
         <p>Added by: {{post.owner.username}}, {{ post.published_at|date:"d\.m\.Y l" }}</p> 
         <p>{{ post.body }}</p>
+        {% if post.post_image %}
+        <img src="{{ post.post_image.url }}" alt="Post image" class="img-fluid rounded shadow" style="max-width: 300px; height: auto;">
+        {% endif %}
     </div>
     {% else %}
     <div class="d-flex flex-column gap-4">
         <h1>(#{{ post.id }}) {{ post.title }}</h1>
+
     <div class="d-flex flex-column gap-4">
         <p>Added by: {{post.owner.username}}, {{ post.published_at|date:"d\.m\.Y l" }}</p> 
         <p>{{ post.body }}</p>
+        {% if post.post_image %}
+        <img src="{{ post.post_image.url }}" alt="Post image" class="img-fluid rounded shadow" style="max-width: 300px; height: auto;">
+        {% endif %}
     </div>
     {% endif %}
+
 {% endblock %}

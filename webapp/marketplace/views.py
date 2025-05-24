@@ -17,15 +17,15 @@ def marketplace_create(request):
     error = ''
 
     if request.method == 'POST':
-        form = PostsForm(request.POST)
+        form = PostsForm(request.POST, request.FILES)
         if form.is_valid():
             form.instance.owner = request.user
             form.save()
             return redirect('marketplace_home')
         else:
             error = 'Submitted form contain errors'
-
-    form = PostsForm()
+    else:
+        form = PostsForm()
 
     data = {
         'form': form,
