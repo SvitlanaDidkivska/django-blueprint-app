@@ -8,11 +8,13 @@
 <link rel="stylesheet" href="{% static 'main/css/register.css' %}">
 {% endblock %}
 
-{% block content%}
-    <h1>Register</h1>
-    <form action="/user/register/" method="post">
-        {{ form }}
-        <button>Register</button>
-        {% csrf_token %}
-    </form>
+{% block content %}
+    <div class="register-wrapper">
+        <h1>Register</h1>
+        <form action="/user/register/" method="post">
+            {{ form }}
+            <button>Register</button>
+            {% csrf_token %}
+        </form>
+    </div>
 {% endblock %}

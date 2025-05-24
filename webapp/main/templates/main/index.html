@@ -4,7 +4,9 @@
 
 {% block content%}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/homepage_new.css' %}">
+
+    <div class="homepage-wrapper">
 
     <!--<h1>Homepage</h1>--> <!--not sure if its necesarry-->
     <div class="container text-center mt-4">
@@ -89,6 +91,7 @@
         <a href="/about" class="btn btn-secondary btn-lg">Go to About Us Page</a>
     </div>
 
+    </div> <!--the end of homepage wrapper-->
 
 
 {% endblock %}

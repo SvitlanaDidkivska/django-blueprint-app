@@ -1,43 +1,39 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #f4f4f9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: flex-start;
-    height: 100vh;
-    margin: 0
-}
-
-.d-flex {
-    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 main {
-    flex-grow: 1;  /* Main content takes up remaining space */
     display: flex;
-    justify-content: center;  /* Center the content in the main area */
-    padding: 20px;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    flex-grow: 1;
 }
 
-.register-container {
-    max-width: 400px;
-    margin: 80px auto;
+.register-wrapper {
+    background-color: white;
+    max-width: 800px;
+    width: 100%;
     padding: 30px;
-    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    margin: 0 auto;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 38px;
+    font-size: 48px;
     color: #343a40;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 form .form-group {
@@ -60,7 +56,7 @@ form input {
 }
 
 form button {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 12px;
     background-color: #1775da;
     border: none;
@@ -77,4 +73,15 @@ form button:hover {
 .form-error {
     color: #dc3545;
     font-size: 14px;
+}
+
+.form-container {
+    margin: 0 auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
 }

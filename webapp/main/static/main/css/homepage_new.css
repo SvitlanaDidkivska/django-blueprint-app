@@ -1,10 +1,23 @@
 /* General Styles */
 body {
     background-color: #f4f4f9; 
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
+}
+
+main {
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    flex-grow: 1;
+}
+
+main .container-sm {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 997px;
 }
 
 /* Welcome Section */
@@ -14,17 +27,25 @@ body {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.display-4 {
+    font-weight: 400 !important;
+}
+
+.lead {
+    font-weight: 350;
+}
+
 /* Best Deals */
 .best-deals-title {
     color: #3f3f3f;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 2.5rem;
     margin-top: 30px
 }
 
 /* Headings */
 h1, h2 {
-    color: #222; 
+    color: #222;
 }
 
 /* Buttons */
@@ -88,4 +109,27 @@ h1, h2 {
 
 .btn-secondary:hover {
     background-color: #5a6268;
+}
+
+.homepage-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Messages */
+.messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border: 1px solid #c3e6cb;
 }

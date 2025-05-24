@@ -1,34 +1,31 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #f4f4f9;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-start;  /* Keep content aligned left */
-    height: 100vh;
-}
-
-.d-flex {
-    display: flex;
 }
 
 main {
+    min-height: 100vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
 }
 
-form {
+main .container-sm {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 997px;
+}
+
+.form-container {
     background-color: white;
     max-width: 400px;
-    margin: 60px auto;
+    width: 100%;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto
 }
 
 h1 {
@@ -36,6 +33,12 @@ h1 {
     margin-bottom: 20px;
     font-size: 48px;
     color: #343a40;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 form .form-group {
@@ -46,7 +49,7 @@ form label {
     font-weight: 600;
     margin-bottom: 5px;
     display: block;
-    font-size: 18px; /* Same font size as register form */
+    font-size: 18px;
     color: #343a40;
 }
 
@@ -75,4 +78,11 @@ form button:hover {
 .form-error {
     color: #dc3545;
     font-size: 14px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
 }
