@@ -2,9 +2,12 @@
 PyCharm will prepare the virtual environment for project automatically. For non-PyCharm users (for example VSCode) look an instructions below how to do this manually
 
 ## How to run local server
+Create a `.env` file in a `webapp` folder and fill it with an environment values. You will need to fill in the Django's `SECRET_KEY`.
+It is recommended to use a `.env.dist` file as a template.
+
 Get to the `webapp` directory: `cd webapp` and run `python3 manage.py runserver` from webapp folder
 
-*In some enviroments it could be not `python3` but `python`* 
+*In some environments it could be not `python3` but `python`* 
 
 
 ### How to set up a virtual environment:
