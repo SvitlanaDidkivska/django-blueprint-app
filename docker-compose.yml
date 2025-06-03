@@ -1,0 +1,13 @@
+services:
+  webapp:
+   build: .
+   container_name: django-webapp
+   ports:
+     - "8000:8000"
+   volumes:
+     - webapp-sqlite:/app/webapp/databaseAdd commentMore actions
+   env_file:
+     - ./webapp/.env
+
+volumes:
+  webapp-sqlite:
