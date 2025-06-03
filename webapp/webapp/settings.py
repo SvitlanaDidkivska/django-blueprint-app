@@ -18,7 +18,8 @@ import os
 # Initialise environment variables
 env = environ.Env(
     # set casting, default value
-    SECRET_KEY=(str, '')
+    SECRET_KEY=(str, ''),
+    SQLITE_DB_PATH=(str, 'database/db.sqlite3'),
 )
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,7 +93,7 @@ WSGI_APPLICATION = 'webapp.wsgi.application' #created as an implementation-neutr
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / env("SQLITE_DB_PATH"),
     }
 }
 
