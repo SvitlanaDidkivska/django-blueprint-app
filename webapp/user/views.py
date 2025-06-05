@@ -33,7 +33,7 @@ def login_view(request):
             
             else:
                 messages.success(request, "Successfully log in!")
-                return redirect('home')
+                return redirect('dashboard')
             
     elif request.method == 'GET':
         form = AuthenticationForm()

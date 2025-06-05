@@ -1,0 +1,52 @@
+{% extends 'main/layout/layout.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/marketplace.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+    {% if user.is_authenticated %}
+    <div class="marketplace-wrapper">
+    <h1 class="marketplace-title">Your posts</h1>
+        {% if object_list %}
+        <div class="market-grid">
+            {% for post in object_list %}
+            <div class="market-card">
+                <h3 class="market-title">
+                    <a href="/marketplace/{{ post.id }}">{{ post.title }}</a>
+                </h3>
+                <p class="market-excerpt">{{ post.excerpt }}</p>
+                <p class="market-meta">
+                    Added by {{ post.owner }} on {{ post.published_at|date:"d.m.Y (l)" }}
+                </p>
+            </div>
+                <div>
+                    {% if post.post_image %}
+                    <img src="{{ post.post_image.url }}" alt="Post image" class="img-fluid rounded shadow" style="max-width: 300px; height: auto;">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center">No posts for now.</p>
+        {% endif %}
+    {% else %}
+        Ops! Something went wrong.
+    {% endif %}
+
+</div>
+{% endblock %}

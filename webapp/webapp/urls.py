@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('marketplace/', include('marketplace.urls')), 
     path('news/', include('news.urls')),
-    path('user/', include('user.urls')), #delegating authority to an internal application
+    path('user/', include('user.urls')),
+    path('dashboard/', include('dashboard.urls')) #delegating authority to an internal application
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#added media root-rb
 

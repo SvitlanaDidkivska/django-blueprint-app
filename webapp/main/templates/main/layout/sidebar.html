@@ -40,7 +40,7 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
         {% if user.is_authenticated %}
-          <li><a class="dropdown-item" href="#">Dashboard</a></li>
+          <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="{% url 'logout' %}">Log out</a></li>
         {% else %}

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'marketplace',
     'news',
     'user',
+    'dashboard',
 ]
 
 MIDDLEWARE = [ # now default, used for verification/modification processing data from requests

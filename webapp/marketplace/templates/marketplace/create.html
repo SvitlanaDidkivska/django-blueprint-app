@@ -3,6 +3,15 @@
 {% block title%}Add post{% endblock %}
 
 {% block content%}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
     <h1>Add post</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2" enctype="multipart/form-data">
