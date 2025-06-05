@@ -18,10 +18,10 @@
     </ul>
 {% endif %}
 
-
     {% if user.is_authenticated %}
-    <div class="marketplace-wrapper">
+<div class="marketplace-wrapper">
     <h1 class="marketplace-title">Your posts</h1>
+
         {% if object_list %}
         <div class="market-grid">
             {% for post in object_list %}
@@ -33,12 +33,12 @@
                 <p class="market-meta">
                     Added by {{ post.owner }} on {{ post.published_at|date:"d.m.Y (l)" }}
                 </p>
-            </div>
-                <div>
+                <div class="post-image">
                     {% if post.post_image %}
                     <img src="{{ post.post_image.url }}" alt="Post image" class="img-fluid rounded shadow" style="max-width: 300px; height: auto;">
                     {% endif %}
                 </div>
+            </div>
             {% endfor %}
         </div>
         {% else %}
