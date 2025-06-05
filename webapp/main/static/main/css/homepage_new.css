@@ -133,3 +133,51 @@ h1, h2 {
     font-weight: bold;
     border: 1px solid #c3e6cb;
 }
+
+/* ====== New styles for equal-height cards and aligned buttons ====== */
+
+.img-wrapper {
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wrapper img {
+    max-height: 100%;
+    width: auto;
+}
+
+/* Keep Bootstrap grid columns as block to preserve equal width */
+.row.align-items-stretch > .col-md-4 {
+    display: block; /* reset flex to preserve widths */
+}
+
+/* Make the card a flex column to stretch height */
+.row.align-items-stretch > .col-md-4 > .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card body fills remaining space */
+.row.align-items-stretch > .col-md-4 > .card > .card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card text grows to push button down */
+.row.align-items-stretch > .col-md-4 > .card > .card-body > .card-text {
+    flex-grow: 1;
+}
+
+/* Align the button at the bottom and give consistent height */
+.row.align-items-stretch > .col-md-4 > .card > .card-body > a.btn {
+    margin-top: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

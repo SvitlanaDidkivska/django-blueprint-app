@@ -1,66 +1,60 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Homepage{% endblock %}
+{% block title %}Homepage{% endblock %}
 
-{% block content%}
+{% block content %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'main/css/homepage_new.css' %}">
 
     <div class="homepage-wrapper">
 
     <!--<h1>Homepage</h1>--> <!--not sure if its necesarry-->
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
     <div class="container text-center mt-4">
         <!--Welcome message -->
         <div class="p-5 mb-4 bg-light rounded-3">
             <h1 class="display-4">Welcome to Our Marketplace!</h1>
             <p class="lead">Find the best deals on thousands of products from verified sellers.</p>
-            <a href="/marketplace" class="btn btn-primary btn-lg">Browse Products</a> <!--This line can be changed if we change the marketplace name!!-->
+            <a href="/marketplace" class="btn btn-primary btn-lg">Browse Products</a> 
         </div>
     </div>
 
     <!-- Featured Products Section -->
     <div class="mt-5 bg-light py-3">
         <h2 class="text-center best-deals-title">Discover the Latest Deals!</h2>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Featured Product 1</h5>
-                        <p class="card-text">This is a brief description of a featured product. It's a top-seller and very popular!</p>
-                        <a href="#" class="btn btn-warning">View Product</a>
+        <div class="row mt-5 align-items-stretch">
+            {% if posts %}
+                {% for post in posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card d-flex flex-column h-100">
+                        {% if post.post_image %}
+                        <div class="img-wrapper">
+                            <img src="{{ post.post_image.url }}" class="card-img-top" alt="{{ post.title }}">
+                        </div>
+                        {% else %}
+                        <img src="{% static 'main/img/no-image-available.png' %}" class="card-img-top" alt="No image available">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">
+                                {{ post.excerpt|default:post.body|truncatewords:15 }}
+                            </p>
+                            <a href="/marketplace/{{ post.id }}" class="btn btn-warning mt-auto">View Product</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Featured Product 2</h5>
-                        <p class="card-text">Check out this amazing product that everyone is talking about. Limited stock!</p>
-                        <a href="#" class="btn btn-warning">View Product</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg" class="card-img-top" alt="Product 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Featured Product 3</h5>
-                        <p class="card-text">A high-quality product that offers great value for money. Don't miss out!</p>
-                        <a href="#" class="btn btn-warning">View Product</a>
-                    </div>
-                </div>
-            </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">No featured products currently available.</p>
+            {% endif %}
         </div>
     </div>
 
@@ -101,6 +95,5 @@
     </div>
 
     </div> <!--the end of homepage wrapper-->
-
 
 {% endblock %}
