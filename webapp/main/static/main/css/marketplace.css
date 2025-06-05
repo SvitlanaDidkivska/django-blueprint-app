@@ -84,6 +84,30 @@ h1 {
     color: #666;
 }
 
+.post-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 220px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.post-image img.shadow {
+    box-shadow: 0px 2px 8px rgba(82, 77, 77, 0.2) !important;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    object-fit: contain !important; 
+    display: block !important;
+}
+
 /* Messages */
 .messages {
     list-style-type: none;
