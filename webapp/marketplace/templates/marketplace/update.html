@@ -1,42 +1,51 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Update post #{{ form.title.value }}{% endblock %}
+{% load static %}
 
-{% block content%}
+{% block title %}Update post "{{ form.title.value }}"{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/post_form.css' %}">
+{% endblock %}
+
+{% block content %}
 {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
+<ul class="messages">
+    {% for message in messages %}
+        <li class="{{ message.tags }}">
+            {{ message }}
+        </li>
+    {% endfor %}
+</ul>
 {% endif %}
-{% if user.is_authenticated and user == posts.owner %}
+<main>
+    {% if user.is_authenticated and user == posts.owner %}
+    <div class="container-sm">
+        <div class="form-wrapper">
+            <h1 class="form-title">Update post</h1>
+            <form method="post" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                {{ form.title }}
+                {{ form.excerpt }}
+                {{ form.body }}
+                {{ form.published_at }}
+                {{ form.post_image }}
 
-    <h1>Update post #{{ form.title.value }}</h1>
-    <div>
-        <form method="post" class="form d-flex flex-column gap-2">
-<!-- {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
-{#            Token wymagany jest aby potwierdzić, że formularz na pewno został wypełniony na żądanie użytkownika #}
-{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
-            {% csrf_token %}
+                {% if error %}
+                <span class="error">{{ error }}</span>
+                {% endif %}
 
-            {{ form.title }}
-            {{ form.excerpt }}
-            {{ form.body }}
-            {{ form.published_at }}
-            {{form.post_image}}
-
-            <span>
-                {{ error }}
-            </span>
-
-            <button class="btn btn-success" type="submit">Update</button>
-        </form>
+                <button class="btn btn-success" type="submit">Update</button>
+            </form>
+        </div>
     </div>
-{% else %}
-    Ops! Something went wrong.
-{% endif %}
-
+    {% else %}
+    <div class="container-sm">
+        <div class="form-wrapper">
+            <h1 class="form-title">Oops!</h1>
+            <p>You are not authorized to update this post.</p>
+        </div>
+    </div>
+    {% endif %}
+</main>
 {% endblock %}

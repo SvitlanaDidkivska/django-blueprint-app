@@ -1,6 +1,12 @@
 {% extends 'main/layout/layout.html' %}
 
-{% block title%}Post #{{ posts.id }} deletion{% endblock %}
+{% load static %}
+
+{% block title%}Post "{{ post.title }}" deletion{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/post_form.css' %}">
+{% endblock %}
 
 {% block content%}
 {% if messages %}
@@ -12,16 +18,16 @@
         {% endfor %}
     </ul>
 {% endif %}
-{% if user.is_authenticated and user == posts.owner %}
-    <h1>Post #{{ posts.id }} deletion</h1>
+{% if user.is_authenticated and user == post.owner %}
+    <h1>Post "{{ post.title }}" deletion</h1>
     <div>
         <form method="post" class="form d-flex flex-column gap-2">
 <!-- {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
 {#            Token wymagany jest aby potwierdzić, że formularz na pewno został wypełniony na żądanie użytkownika #}
 {#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
             {% csrf_token %}
-            <div class="alert alert-danger text-center">
-                This action is destructive. Are you sure you want to delete post #{{ posts.id }}?
+            <div class="delete-warning">
+            This action is destructive. Are you sure you want to delete post "{{ post.title }}"?
             </div>
 
             <div class="d-flex gap-2 justify-content-center">

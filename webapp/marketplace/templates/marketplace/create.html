@@ -1,6 +1,12 @@
 {% extends 'main/layout/layout.html' %}
 
+{% load static %}
+
 {% block title%}Add post{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/post_form.css' %}">
+{% endblock %}
 
 {% block content%}
 {% if messages %}
@@ -12,25 +18,25 @@
         {% endfor %}
     </ul>
 {% endif %}
-    <h1>Add post</h1>
-    <div>
-        <form method="post" class="form d-flex flex-column gap-2" enctype="multipart/form-data">
-<!-- {#            CSRF to Cross-site request forgery - rodzaj ataku na strony internetowe #}
-{#            Token wymagany jest aby potwierdzić, że formularz na pewno został wypełniony na żądanie użytkownika #}
-{#            Szczegóły: https://pl.wikipedia.org/wiki/Cross-site_request_forgery #} -->
-            {% csrf_token %}
+<main>
+    <div class="container-sm">
+        <div class="form-wrapper">
+            <h1 class="form-title">Add post</h1>
+            <form method="post" enctype="multipart/form-data" class="form">
+                {% csrf_token %}
+                {{ form.title }}
+                {{ form.excerpt }}
+                {{ form.body }}
+                {{ form.published_at }}
+                {{ form.post_image }}
 
-            {{ form.title }}
-            {{ form.excerpt }}
-            {{ form.body }}
-            {{ form.published_at }}
-            {{ form.post_image}}
+                {% if error %}
+                <span class="error">{{ error }}</span>
+                {% endif %}
 
-            <span>
-                {{ error }}
-            </span>
-
-            <button class="btn btn-success" type="submit">Add post</button>
-        </form>
+                <button class="btn btn-success" type="submit">Add post</button>
+            </form>
+        </div>
     </div>
+</main>
 {% endblock %}

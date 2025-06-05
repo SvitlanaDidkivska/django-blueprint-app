@@ -53,6 +53,7 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = 'marketplace/delete.html'
     success_url = '/marketplace/'
     login_url = '/user/login/'
+    context_object_name = 'post'
 
     def test_func(self):
         post = self.get_object()
