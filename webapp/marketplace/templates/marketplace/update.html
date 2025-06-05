@@ -23,7 +23,7 @@
     <div class="container-sm">
         <div class="form-wrapper">
             <h1 class="form-title">Update post</h1>
-            <form method="post" enctype="multipart/form-data" class="form">
+            <form method="post" class="form d-flex flex-column gap-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.title }}
                 {{ form.excerpt }}
