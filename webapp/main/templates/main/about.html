@@ -5,6 +5,22 @@
 {% block content%}
 
     <style>
+
+        .main {
+        max-width: 1900px;    /* or whatever width fits your layout */
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+        .d-flex {
+        display: flex;
+        }
+
+        main {
+            flex-grow: 1;
+            justify-content: center;
+        }
+
         .ta-center{
         text-align: center;
         
@@ -22,36 +38,38 @@
 
     </style>
 
-    <div class="container ta-center">
-        <h1>About us</h1>
-    </div>
-    <div  style="display: flex;">
-
+    <main class="main">
         <div class="container ta-center">
-            <img src="static/main/img/market1.png" alt="market" style="width:500px; height:auto; margin-right: 100px;">
+            <h1>About us</h1>
         </div>
+        <div  style="display: flex;">
 
-        <div class="container"> 
-            Welcome to <strong>Marketplace</strong>! We're your go-to free market space where anyone can buy,
-            sell, or exchange a wide variety of items. Whether you're looking to part ways with a vintage painting, 
-            find a new favourite T-shirt, trade a coffee cup, or even seel your car; Marketplace is here to make it easy! <br><br>
-            Our platform connects poeple across Poland, giving you direct access to local buyers and sellers.
-            Just type in what you're searching for, browse the listings, and get in touch! That simple!<br><br>
-            We believe in making online trading safe, accessible, and user-friendly!
-            That's why we offer reliable tools to help you manage your listings, communicate with others,
-            and complite transactions with  confidence. Whether you're a first-time user or a seasoned seller,
-            Marketplace is designed to support your journey every step of the way.<br><br>
-            So go ahead - discover something new, give unused items a second life,
-            and be part of a growing community! 
+            <div class="container ta-center">
+                <img src="static/main/img/market1.png" alt="market" style="width:500px; height:auto; margin-right: 100px;">
+            </div>
+
+            <div class="container"> 
+                Welcome to <strong>Marketplace</strong>! We're your go-to free market space where anyone can buy,
+                sell, or exchange a wide variety of items. Whether you're looking to part ways with a vintage painting, 
+                find a new favourite T-shirt, trade a coffee cup, or even seel your car; Marketplace is here to make it easy! <br><br>
+                Our platform connects poeple across Poland, giving you direct access to local buyers and sellers.
+                Just type in what you're searching for, browse the listings, and get in touch! That simple!<br><br>
+                We believe in making online trading safe, accessible, and user-friendly!
+                That's why we offer reliable tools to help you manage your listings, communicate with others,
+                and complite transactions with  confidence. Whether you're a first-time user or a seasoned seller,
+                Marketplace is designed to support your journey every step of the way.<br><br>
+                So go ahead - discover something new, give unused items a second life,
+                and be part of a growing community! 
+            </div>
+
         </div>
-
-    </div>
-    <div class="container ta-center">
-        Our quarters are located on Rakowicka 27 in Krakow, Poland <a href="https://maps.app.goo.gl/494Noc9DXbCwED1c6">here</a>!
-    </div>
-    <div  class="container ta-center">
-     If you need help, <a href="/contact">contact</a> us! We are a team of young poeple, ready to talk and work with everyone!
-    </div>
+        <div class="container ta-center">
+            Our quarters are located on Rakowicka 27 in Krakow, Poland <a href="https://maps.app.goo.gl/494Noc9DXbCwED1c6">here</a>!
+        </div>
+        <div  class="container ta-center">
+        If you need help, <a href="/contact">contact</a> us! We are a team of young poeple, ready to talk and work with everyone!
+        </div>
+    </main>
     
 
 {% endblock %}
