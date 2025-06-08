@@ -1,23 +1,19 @@
 {% extends 'main/layout/layout.html' %}
 
+{% load static %}
+
 {% block title %}Homepage{% endblock %}
 
-{% block content %}
-    {% load static %}
+
+{% block extra_css %}
     <link rel="stylesheet" href="{% static 'main/css/homepage_new.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/messages.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'main/messages.html' %}
 
     <div class="homepage-wrapper">
-
-    <!--<h1>Homepage</h1>--> <!--not sure if its necesarry-->
-    {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li class="{{ message.tags }}">
-                    {{ message }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% endif %}
     <div class="container text-center mt-4">
         <!--Welcome message -->
         <div class="p-5 mb-4 bg-light rounded-3">
@@ -55,37 +51,6 @@
             {% else %}
                 <p class="text-center">No featured products currently available.</p>
             {% endif %}
-        </div>
-    </div>
-
-    <!-- Reviews -->
-    <div class="mt-5 bg-light py-5">
-        <h2 class="text-center">What Our Users Are Saying</h2>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">"This marketplace is amazing! I found exactly what I was looking for and at a great price!"</p>
-                        <footer class="blockquote-footer">John Doe, Buyer</footer>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">"Selling on this platform was easy and I reached so many potential customers!"</p>
-                        <footer class="blockquote-footer">Jane Smith, Seller</footer>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-text">"The customer service is outstanding, and my experience has been seamless!"</p>
-                        <footer class="blockquote-footer">Emily Johnson, Buyer</footer>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

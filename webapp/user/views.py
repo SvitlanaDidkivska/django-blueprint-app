@@ -19,7 +19,7 @@ def register(request):
         form = UserCreationForm()
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
-    return render(request,'auth/register.html', {'form':form})
+    return render(request,'user/register.html', {'form':form})
 
 
 def login_view(request):
@@ -40,7 +40,7 @@ def login_view(request):
     else:
         return HttpResponseNotAllowed(permitted_methods=['GET', 'POST'])
     
-    return render(request,'auth/login.html', {'form':form})
+    return render(request,'user/login.html', {'form':form})
 
 @login_required
 def logout_view(request):

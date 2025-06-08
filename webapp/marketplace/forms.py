@@ -1,5 +1,6 @@
-from .models import Posts
 from django.forms import ModelForm, TextInput, DateInput, Textarea, ClearableFileInput
+
+from .models import Posts
 
 
 class PostsForm(ModelForm):

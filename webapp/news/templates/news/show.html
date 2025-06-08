@@ -1,9 +1,11 @@
 {% extends 'main/layout/layout.html' %}
 
+{% load static %}
+
 {% block title%}(#{{ news.id }}) {{ news.title }}{% endblock %}
 
 {% block content%}
-    {% load static %}
+
     <link rel="stylesheet" href="{% static 'main/css/homepage.css' %}">
 
     <div class="container mt-4">

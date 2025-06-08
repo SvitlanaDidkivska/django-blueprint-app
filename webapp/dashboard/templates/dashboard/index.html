@@ -5,18 +5,11 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'main/css/marketplace.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/messages.css' %}">
 {% endblock %}
 
 {% block content %}
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li class="{{ message.tags }}">
-                {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+{% include 'main/messages.html' %}
 
     {% if user.is_authenticated %}
 <div class="marketplace-wrapper">
