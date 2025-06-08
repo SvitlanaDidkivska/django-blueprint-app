@@ -2,6 +2,9 @@ from django.forms import ModelForm, TextInput, DateInput, Textarea, ClearableFil
 
 from .models import Posts
 
+class CustomClearableFileInput(ClearableFileInput):
+    clear_checkbox_label = "Delete current image"
+
 
 class PostsForm(ModelForm):
     class Meta:
@@ -15,5 +18,5 @@ class PostsForm(ModelForm):
             'excerpt': TextInput(attrs={'class': 'form-control', 'placeholder': 'Excerpt'}),
             'body': Textarea(attrs={'class': 'form-control', 'placeholder': 'Post body'}),
             'published_at': DateInput(attrs={'class': 'form-control', 'type':'date'}),
-            'post_image': ClearableFileInput(attrs={'class': 'form-control'}),
+            'post_image': CustomClearableFileInput(attrs={'class': 'form-control'}),
         }
