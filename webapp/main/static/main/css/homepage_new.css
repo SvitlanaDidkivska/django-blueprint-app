@@ -20,7 +20,6 @@ main .container-sm {
     min-width: 997px;
 }
 
-/* Welcome Section */
 .bg-light {
     background-color: #ffffff !important;
     border-radius: 10px;
@@ -35,7 +34,6 @@ main .container-sm {
     font-weight: 350;
 }
 
-/* Best Deals */
 .best-deals-title {
     color: #3f3f3f;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,12 +41,10 @@ main .container-sm {
     margin-top: 30px
 }
 
-/* Headings */
 h1, h2 {
     color: #222;
 }
 
-/* Buttons */
 .btn-primary {
     background-color: #1775da; 
     border: none;
@@ -74,7 +70,6 @@ h1, h2 {
     background-color: #e68900;
 }
 
-/* Cards */
 .card {
     border: none;
     border-radius: 10px;
@@ -86,19 +81,16 @@ h1, h2 {
     transform: translateY(-5px);
 }
 
-/* Reviews Section */
 .bg-light.py-5 {
     background-color: #f8f9fa;
     padding: 50px 0;
     border-radius: 10px;
 }
 
-/* Centered Content */
 .text-center {
     text-align: center;
 }
 
-/* About Us Button */
 .btn-secondary {
     background-color: #738391;
     border: none;
@@ -117,8 +109,6 @@ h1, h2 {
     padding: 20px;
 }
 
-/* ====== New styles for equal-height cards and aligned buttons ====== */
-
 .img-wrapper {
     height: 180px;
     overflow: hidden;
@@ -132,31 +122,26 @@ h1, h2 {
     width: auto;
 }
 
-/* Keep Bootstrap grid columns as block to preserve equal width */
 .row.align-items-stretch > .col-md-4 {
-    display: block; /* reset flex to preserve widths */
+    display: block;
 }
 
-/* Make the card a flex column to stretch height */
 .row.align-items-stretch > .col-md-4 > .card {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-/* Card body fills remaining space */
 .row.align-items-stretch > .col-md-4 > .card > .card-body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-/* Card text grows to push button down */
 .row.align-items-stretch > .col-md-4 > .card > .card-body > .card-text {
     flex-grow: 1;
 }
 
-/* Align the button at the bottom and give consistent height */
 .row.align-items-stretch > .col-md-4 > .card > .card-body > a.btn {
     margin-top: auto;
     height: 40px;

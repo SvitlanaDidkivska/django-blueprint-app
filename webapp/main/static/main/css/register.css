@@ -79,7 +79,6 @@ form button:hover {
     margin: 0 auto;
 }
 
-/* Mobile adjustments */
 @media (max-width: 600px) {
     h1 {
         font-size: 1.8rem;
