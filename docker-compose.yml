@@ -1,0 +1,11 @@
+#Used for starting the app
+services:
+  webapp:
+    build: .
+    container_name: django-webapp
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./webapp/.env
+    volumes:
+      - ./database/:/app/database/

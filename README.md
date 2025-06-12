@@ -1,6 +1,11 @@
 # Django blueprint app
 PyCharm will prepare the virtual environment for project automatically. For non-PyCharm users (for example VSCode) look an instructions below how to do this manually
 
+## How to run local server using docker
+1. Install [docker](https://www.docker.com/products/docker-desktop/)
+2. Set the SECRET_KEY in `webapp/.env`
+3. Use `docker compose up`
+
 ## How to run local server
 Get to the `webapp` directory: `cd webapp` and run `python3 manage.py runserver` from webapp folder
 
